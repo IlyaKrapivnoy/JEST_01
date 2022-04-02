@@ -8,3 +8,11 @@ test('should render non-completed todo item', () => {
     expect(todoElement).toBeInTheDocument();
     expect(todoElement).toHaveTextContent('wash dishes');
 });
+
+test('should render completed todo item', () => {
+    const todo = { id: 2, title: 'make dinner', completed: true };
+    render(<Todo todo={todo} />);
+    const todoElement = screen.getByTestId('todo-1');
+    expect(todoElement).toBeInTheDocument();
+    expect(todoElement).toHaveTextContent('make dinner');
+});
